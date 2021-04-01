@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Подчеркивание</title>
+		<style>
+			a {
+				position: relative;
+				text-decoration: none;
+				line-height: 1;
+			}
+			a::after {
+				display: block;
+				position: absolute;
+				left: 0;
+				width: 0;
+				height: 1px;
+				content: "";
+				transition: width 0.3s ease-out;
+				background-color: #00a650;
+			}
+			a:hover::after,
+			a:focus::after {
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="/">Ссылка</a>
+	</body>
+</html>

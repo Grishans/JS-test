@@ -1,0 +1,57 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+a,
+p,
+span,
+li {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	text-decoration: none;
+}
+.nav {
+	position: relative;
+	display: flex;
+	align-items: center;
+	z-index: 99;
+	transition: 0.3s;
+	width: 20%;
+	height: 100vh;
+}
+
+.nav img.main_logo {
+	cursor: pointer;
+	transition: 0.3s;
+	padding: 80px 80px 80px 0;
+}
+
+img.main_logo:hover ~ img.ic_1 {
+	transform: translate(130%, -350%);
+}
+img.main_logo:hover ~ img.ic_2 {
+	transform: translate(260%, -250%);
+}
+img.main_logo:hover ~ img.ic_3 {
+	transform: translate(350%, -140%);
+}
+img.main_logo:hover ~ img.ic_4 {
+	transform: translate(350%, -10%);
+}
+img.main_logo:hover ~ img.ic_5 {
+	transform: translate(260%, 100%);
+}
+img.main_logo:hover ~ img.ic_6 {
+	transform: translate(160%, 230%);
+}
+
+.nav img.icons {
+	position: absolute;
+	top: 50.5%;
+	left: 17.6%;
+	width: 50px;
+	height: 50px;
+	z-index: -1;
+	transition: 0.3s;
+}

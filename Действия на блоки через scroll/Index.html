@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    label {
+      padding: 30px;
+      background: #acacac;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      transition: 0.3s;
+    }
+
+    .wrap {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .block__wrap {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgb(49, 174, 247);
+      padding: 10px 5px;
+      border-radius: 20%;
+      transition: 0.3s;
+    }
+
+    .content {
+      width: 50%;
+    }
+
+    .a {
+      width: 60%;
+      height: 300px;
+      background: green;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="block__wrap" class="block__wrap">
+    <label></label>
+    <label></label>
+    <label></label>
+  </div>
+  <div class="wrap">
+
+    <div id="content" class="content">
+      <div class="a"></div>
+      <div class="a"></div>
+      <div class="a"></div>
+      <div class="a"></div>
+      <div class="a"></div>
+      <div class="a"></div>
+      <div class="a"></div>
+    </div>
+  </div>
+
+  <script>
+    var target = document.querySelectorAll('#block__wrap > label')
+    var lastScroll = 0
+    function scr() {
+      if (window.scrollY < lastScroll) {
+        for (let i = 0; i < target.length; i++) {
+          target[i].style.marginBottom = '0'
+          target[i].style.marginTop = '20px'
+        }
+        lastScroll = window.scrollY
+      }
+
+    }
+    function scrSee() {
+      if (window.scrollY === lastScroll) {
+        for (let i = 0; i < target.length; i++) {
+          target[i].style.marginBottom = '20px'
+          target[i].style.marginTop = '0'
+        }
+      }
+
+      lastScroll = window.scrollY
+
+    }
+    window.addEventListener('scroll', function () {
+      scr()
+      setTimeout(scrSee, 100)
+      console.log("window: ", window.scrollY)
+      console.log("lastScroll: ", lastScroll)
+    });
+  </script>
+</body>
+
+</html>

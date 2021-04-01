@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snap</title>
+  <style>
+    .section {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x;
+    } 
+
+    .section__item {
+      flex: 0 0 800px;
+      scroll-snap-align: start;
+      height: 100px;
+      background: rgb(224, 101, 101);
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <div class="section__item">Item 1</div>
+    <div class="section__item">Item 2</div>
+    <div class="section__item">Item 3</div>
+    <div class="section__item">Item 4</div>
+    <div class="section__item">Item 5</div>
+  </div>
+</body>
+</html>

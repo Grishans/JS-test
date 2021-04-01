@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Snow</title>
+	</head>
+	<body>
+		<div
+			class="content"
+			style="width: 100%; height: 500px; background: rgb(81, 67, 206)"
+		>
+			asdas
+		</div>
+
+		<div
+			class="content"
+			style="width: 100%; height: 500px; background: rgb(42, 172, 74)"
+		>
+			asas
+		</div>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="snowfall.js"></script>
+
+		<script type="text/javascript">
+			;(function ($) {
+				$(document).ready(function () {
+					$(document).snowfall({
+						// image: "img/2.png",
+						minSize: 2,
+						maxSize: 3,
+						flakeCount: 15,
+						maxSpeed: 4,
+						minSpeed: 2,
+						collection: ".content",
+					})
+				})
+			})(jQuery)
+		</script>
+	</body>
+</html>

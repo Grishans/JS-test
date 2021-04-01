@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Paralax</title>
+		<style>
+			body {
+				overflow: hidden;
+			}
+			img {
+				width: 100%;
+				z-index: -1;
+			}
+			p {
+				width: 80%;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div
+			id="wrap"
+			style="
+				width: 100wh;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				position: relative;
+			"
+		>
+			<div data-depth="0.30" style="z-index: 1; text-align: center">
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex maiores
+					dignissimos blanditiis, consectetur qui est? Ullam placeat tempora est
+					iure qui molestias, id optio tempore esse voluptatem perspiciatis sint
+					exercitationem!Numquam ex cum quo id hic sequi porro? Tenetur libero
+					voluptas soluta obcaecati officia harum similique excepturi assumenda
+					ex, quidem illo quisquam aut in nihil nostrum est asperiores fuga
+					optio!
+				</p>
+			</div>
+			<div data-depth="0.10">
+				<img src="itd.jpg" />
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+		<script>
+			var scene = document.getElementById("wrap")
+			var parallax = new Parallax(scene, {
+				hoverOnly: true,
+				relativeInput: true,
+			})
+		</script>
+	</body>
+</html>

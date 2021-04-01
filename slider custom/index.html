@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom slider</title>
+  <style>
+    .wrap{
+      position: relative;
+    }
+    ul{
+      position: absolute;
+      left: 0;
+      display: flex;
+      transition: 0.3s;
+      width: 100%;
+    }
+    li{
+      list-style-type: none;
+      width: 30%;
+    }
+    img{
+      margin: 0 10px;
+    }
+    button{
+      position: absolute;
+      top: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <ul id="ul">
+      <li><img src="1.png" alt=""></li>
+      <li><img src="1.png" alt=""></li>
+      <li><img src="1.png" alt=""></li>
+      <li><img src="1.png" alt=""></li>
+      <li><img src="1.png" alt=""></li>
+    </ul>
+    <button onclick="next()">Вперед</button>
+  </div>
+  
+  <script>
+    var ul = document.querySelector("#ul")
+    var step = document.querySelector("#ul > li")
+    var quantity = document.querySelectorAll("#ul > li").length
+    var slideWidth = 0
+    var currentSlide = 3
+    function next(){
+      slideWidth+=step.offsetWidth
+      currentSlide+=1
+      ul.style.left = "-" + slideWidth + "px"
+      console.log('currentSlide', currentSlide)
+      console.log('quantity', quantity)
+      if(currentSlide > quantity){
+        ul.style.left = "0px"
+        currentSlide = 3
+        slideWidth = 0
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slider</title>
+    <style>
+      .wrap {
+        display: flex;
+        width: 60%;
+        height: 400px;
+      }
+      .img {
+        width: 100%;
+        height: 100%;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        transition: 0.3s;
+        border: 4px solid #fff;
+        object-fit: cover;
+      }
+      .compress {
+        width: 10%;
+        height: 100%;
+        transition: 0.3s;
+      }
+      .all {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="img">
+        <img src="1.png" alt="" />
+      </div>
+      <div class="img compress">
+        <img src="1.png" alt="" />
+      </div>
+      <div class="img compress">
+        <img src="1.png" alt="" />
+      </div>
+    </div>
+
+    <script>
+      let img = document.querySelectorAll(".img img");
+      let imgBlock = document.querySelectorAll(".img");
+      for (let i = 0; i < imgBlock.length; i++) {
+        imgBlock[i].addEventListener("click", () => {
+          for (let j = 0; j < img.length; j++) {
+            imgBlock[j].classList.add("compress");
+            imgBlock[j].classList.remove("all");
+          }
+          imgBlock[i].classList.add("all");
+        });
+      }
+    </script>
+  </body>
+</html>

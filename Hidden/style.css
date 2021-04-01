@@ -1,0 +1,17 @@
+.wrap {
+	display: flex;
+	flex-direction: column;
+}
+.btn {
+	display: flex;
+	cursor: pointer;
+	font-size: 22px;
+	outline: none;
+}
+.btn img{
+	width: 15px;
+}
+.text {
+	display: flex;
+	flex-direction: column;
+}

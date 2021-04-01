@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Scroll js</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			div {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.header {
+				height: 50px;
+				background: rgb(207, 57, 57);
+				width: 100%;
+			}
+			.content {
+				height: 1000px;
+				background: rgb(86, 108, 204);
+			}
+			.footer {
+				height: 50px;
+				background: rgb(79, 187, 93);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header" class="header">Text</div>
+		<div id="content" class="content">Text</div>
+		<div id="footer" class="footer">Text</div>
+		<script>
+			window.addEventListener("scroll", function () {
+				var stick = document.getElementById("header")
+				var content = document.getElementById("content")
+				console.log(content.getBoundingClientRect().top)
+				if (content.getBoundingClientRect().top < 0) {
+					stick.style.position = "fixed"
+					stick.style.background = "rgb(245, 223, 23)"
+				} else if (content.getBoundingClientRect().top >= 0) {
+					stick.style.position = "unset"
+					stick.style.background = "rgb(207, 57, 57)"
+				}
+			})
+		</script>
+	</body>
+</html>

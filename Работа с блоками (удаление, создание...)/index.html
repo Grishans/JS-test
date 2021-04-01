@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Удаление, добавление классов</title>
+  <style>
+    .block{
+      width: 300px;
+      height: 200px;
+      background: rgb(194, 114, 114);
+    }
+  </style>
+</head>
+<body>
+  <button onclick="add();">Add</button>
+  <button onclick="deleted();">Delete</button>
+
+  <script>
+    function add(){
+      var block = document.createElement('div')
+      block.className = "block"
+      block.innerHTML = "text"
+      document.body.appendChild(block)
+    }
+    function deleted(){
+      document.getElementsByClassName('block')[0].remove()
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      
+    });
+  </script>
+</body>
+</html>

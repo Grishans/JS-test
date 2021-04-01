@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse move</title>
+    <style>
+      #wrap {
+        width: 100vw;
+        height: 100vh;
+        background: rgb(214, 190, 190);
+      }
+      #target {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .cube {
+        user-select: none;
+      }
+      #target img {
+        width: 13px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap"></div>
+    <div id="target">
+      <img src="сursor.png" alt="" />
+    </div>
+    <script>
+      let target = document.querySelector("#target");
+      let wrap = document.querySelector("#wrap");
+
+      wrap.addEventListener("mousemove", function (e) {
+        setTimeout(() => {
+          target.style.left = e.clientX + "px";
+          target.style.top = e.clientY + "px";
+        }, 500);
+      });
+
+      ////////////////////////////////////////////////////////////////////////////////
+
+      // let check = false;
+      // wrap.addEventListener("mousedown", function (e) {
+      //   check = true;
+      // });
+      // wrap.addEventListener("mousedown", function (e) {
+      //   check = false;
+      //   target.style.left = e.clientX + "px";
+      //   target.style.top = e.clientY + "px";
+      // });
+      // if (check) {
+      //   console.log("asd");
+      // }
+
+      ////////////////////////////////////////////////////////////////////////////////
+
+      // let cube = document.querySelector(".cube");
+
+      // function getRandomColor() {
+      //   var letters = "0123456789ABCDEF";
+      //   var color = "#";
+      //   for (var i = 0; i < 6; i++) {
+      //     color += letters[Math.floor(Math.random() * 16)];
+      //   }
+      //   return color;
+      // }
+
+      // wrap.addEventListener("click", function (e) {
+      //   let d = document.createElement("div");
+      //   document.body.appendChild(d);
+      //   d.classList.add("cube");
+      //   d.setAttribute(
+      //     "style",
+      //     "position: absolute; left: " +
+      //       e.clientX +
+      //       "px; top: " +
+      //       e.clientY +
+      //       "px; width: 50px; height: 50px; background: " +
+      //       getRandomColor() +
+      //       ""
+      //   );
+      //   for (let i = 0; i < cube.length; i++) {
+      //     cube[i].addEventListener("click", function (e) {
+      //       let d = document.createElement("div");
+      //       document.body.appendChild(d);
+      //       d.classList.add("cube");
+      //       d.setAttribute(
+      //         "style",
+      //         "position: absolute; left: " +
+      //           e.clientX +
+      //           "px; top: " +
+      //           e.clientY +
+      //           "px; width: 50px; height: 50px; background: " +
+      //           getRandomColor() +
+      //           ""
+      //       );
+      //     });
+      //   }
+      // });
+
+      ////////////////////////////////////////////////////////////////////////////////
+    </script>
+  </body>
+</html>

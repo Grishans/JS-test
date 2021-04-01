@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Force</title>
+  <style>
+    .turntable {
+  margin: 0px; 
+}
+.turntable ul {
+  padding: 0px;
+  margin: 0px; 
+}
+.turntable ul li {
+  list-style-type: none;
+  display: none; 
+}
+.turntable ul li img {
+  width: 100%; 
+}
+.turntable ul li.active {
+  display: block; 
+}
+  </style>
+</head>
+<body>
+  <div id="myTurntable" class="turntable">
+    <ul>
+      <li data-img-src="1.jpg"></li>
+      <li data-img-src="1.jpg"></li>
+      <li data-img-src="1.jpg"></li>
+      <li data-img-src="2.jpg"></li>
+      <li data-img-src="2.jpg"></li>
+      <li data-img-src="2.jpg"></li>
+      <li data-img-src="3.jpg"></li>
+      <li data-img-src="3.jpg"></li>
+      <li data-img-src="3.jpg"></li>
+      <li data-img-src="4.jpg"></li>
+      <li data-img-src="4.jpg"></li>
+      <li data-img-src="4.jpg"></li>
+      <li data-img-src="5.jpg"></li>
+      <li data-img-src="5.jpg"></li>
+      <li data-img-src="5.jpg"></li>
+    </ul>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="turntable.js"></script>
+<script>
+ $(document).ready(function(){
+            $('#myTurntable').turntable();
+    });
+</script>
+</body>
+</html>

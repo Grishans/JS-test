@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom paralax</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      .wrap {
+        display: flex;
+        position: relative;
+        margin: 0;
+        height: 100px;
+        background: #1e252b;
+      }
+      #Paralax__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+      }
+      #Paralax__img img {
+        margin: 0 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="parallax background-tree" id="Paralax__img">
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+        <img src="swb_uncolor.svg" alt="" />
+      </div>
+    </div>
+
+    <script>
+      //Получаем элемент фона с деревом
+      const bgMove = document.querySelector("#Paralax__img");
+
+      //При движении мышью вызываем функцию, которая меняет положение фона
+      document.addEventListener("mousemove", function (e) {
+        MoveBackground(e);
+      });
+
+      function MoveBackground(e) {
+        //Рассчитываем, насколько далеко от начала оси находится курсор: 0 - 0, 0.5 - середина экрана, 1 - ширина экрана (например, 1920)
+        //Затем умножаем получившееся число на 30 - настолько будет сдвигаться фон
+        //Например, если курсор находится посередине страницы (0.5), то при умножении получится 15
+        //Далее отнимаем половину от 30, чтобы фон мог двигаться как влево, так и вправо
+
+        let offsetX = (e.clientX / window.innerWidth) * 10 - 15;
+        let offsetY = (e.clientY / window.innerHeight) * 10 - 5;
+
+        //Меняем положение фона
+        bgMove.setAttribute("style", "left: " + offsetX + "px");
+      }
+    </script>
+  </body>
+</html>
