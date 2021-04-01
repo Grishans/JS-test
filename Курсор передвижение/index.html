@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mouse move</title>
     <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
       #wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100vw;
         height: 100vh;
         background: rgb(214, 190, 190);
@@ -15,34 +22,112 @@
         position: absolute;
         top: 0;
         left: 0;
+        width: 13px;
+        height: 22px;
       }
       .cube {
-        user-select: none;
+        width: 50px;
+        height: 50px;
+        background: rgb(75, 182, 224);
+        cursor: pointer;
+        margin: 10px;
+      }
+      .cube2 {
+        width: 50px;
+        height: 50px;
+        background: rgb(74, 214, 93);
+        cursor: pointer;
+        margin: 10px;
       }
       #target img {
-        width: 13px;
-        height: auto;
+        width: 100%;
+        height: 100%;
       }
     </style>
   </head>
   <body>
-    <div id="wrap"></div>
+    <div id="wrap">
+      <div class="cube"></div>
+      <div class="cube2"></div>
+    </div>
     <div id="target">
       <img src="сursor.png" alt="" />
     </div>
+
     <script>
       let target = document.querySelector("#target");
       let wrap = document.querySelector("#wrap");
+      let cube = document.querySelector(".cube");
+      let cube2 = document.querySelector(".cube2");
+      let widthC = 50;
+      let rotate = 0;
 
-      wrap.addEventListener("mousemove", function (e) {
-        setTimeout(() => {
-          target.style.left = e.clientX + "px";
-          target.style.top = e.clientY + "px";
-        }, 500);
+      ////////////////////////////////////////////////////////////////////////////////
+      ////////////// Увеличение блока по скролу //////////////
+
+      // Увеличение //
+      cube.addEventListener("wheel", (e) => {
+        if (e.deltaY < 0) {
+          cube.setAttribute(
+            "style",
+            "width: " + widthC + "px; height: " + widthC + "px"
+          );
+          widthC -= 10;
+        } else if (e.deltaY > 0) {
+          cube.setAttribute(
+            "style",
+            "width: " + widthC + "px; height: " + widthC + "px"
+          );
+          widthC += 10;
+        }
+      });
+
+      // Поворот //
+
+      cube2.addEventListener("wheel", (e) => {
+        if (e.deltaY < 0) {
+          cube2.setAttribute("style", "transform: rotate(" + rotate + "deg)");
+          rotate -= 10;
+        } else if (e.deltaY > 0) {
+          cube2.setAttribute("style", "transform: rotate(" + rotate + "deg)");
+          rotate += 10;
+        }
       });
 
       ////////////////////////////////////////////////////////////////////////////////
+      ////////////// Повторение движения курсора //////////////
 
+      // wrap.addEventListener("mousemove", function (e) {
+      //   setTimeout(() => {
+      //     target.style.left = e.clientX + "px";
+      //     target.style.top = e.clientY + "px";
+      //   }, 500);
+      // });
+
+      ////////////////////////////////////////////////////////////////////////////////
+      ////////////// расстягивание за курсором //////////////
+
+      // wrap.addEventListener("mousemove", function (e) {
+      //   setTimeout(() => {
+      //     let variableWidth = e.clientX - target.getBoundingClientRect().left;
+      //     let variableHeight = e.clientY - target.getBoundingClientRect().top;
+
+      //     target.setAttribute(
+      //       "style",
+      //       "width: " + variableWidth + "px; height: " + variableHeight + "px"
+      //     );
+      //     setTimeout(() => {
+      //       target.setAttribute("style", "width: 13px; height: 22px");
+      //       setTimeout(() => {
+      //         target.style.left = e.clientX + "px";
+      //         target.style.top = e.clientY + "px";
+      //       }, 500);
+      //     }, 500);
+      //   }, 500);
+      // });
+
+      ////////////////////////////////////////////////////////////////////////////////
+      ////////////// Поймал//////////////
       // let check = false;
       // wrap.addEventListener("mousedown", function (e) {
       //   check = true;
@@ -57,6 +142,7 @@
       // }
 
       ////////////////////////////////////////////////////////////////////////////////
+      ////////////// Куб на клик у курсора //////////////
 
       // let cube = document.querySelector(".cube");
 
@@ -69,7 +155,7 @@
       //   return color;
       // }
 
-      // wrap.addEventListener("click", function (e) {
+      // wrap.addEventListener("mousemove", function (e) {
       //   let d = document.createElement("div");
       //   document.body.appendChild(d);
       //   d.classList.add("cube");
