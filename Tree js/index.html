@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="three.js"></script>
+    <script src="geometry.js"></script>
+    <script>
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+
+      //Cube
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+      var geometry = new THREE.BoxGeometry(10, 10, 10);
+      var material = new THREE.MeshPhongMaterial({
+        color: 0xdaa520,
+        specular: 0xbcbcbc,
+      });
+      var cube = new THREE.Mesh(geometry, material);
+      scene.add(cube);
+      camera.position.z = 25;
+
+      // Rotate
+      function render() {
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+        renderer.render(scene, camera);
+      }
+      requestAnimationFrame(render);
+      render();
+
+      //Light
+      var spotLight = new THREE.SpotLight(0xeeeece);
+      spotLight.position.set(1000, 1000, 1000);
+      scene.add(spotLight);
+      var spotLight2 = new THREE.SpotLight(0xffffff);
+      spotLight2.position.set(-200, -200, -200);
+      scene.add(spotLight2);
+    </script>
+    <!-- <script>
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      var camera = new THREE.PerspectiveCamera(
+        45,
+        window.innerWidth / window.innerHeight,
+        1,
+        500
+      );
+      camera.position.set(0, 0, 100);
+      camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+      var scene = new THREE.Scene();
+
+      var material = new THREE.LineBasicMaterial({ color: 0x0000ff });
+
+      var geometry = new THREE.Geometry();
+      geometry.vertices.push(new THREE.Vector3(-10, 0, 0));
+      geometry.vertices.push(new THREE.Vector3(0, 10, 0));
+      geometry.vertices.push(new THREE.Vector3(10, 0, 0));
+
+      var line = new THREE.Line(geometry, material);
+
+      scene.add(line);
+      renderer.render(scene, camera);
+    </script> -->
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WinBox</title>
+    <script src="https://rawcdn.githack.com/nextapps-de/winbox/0.1.8/dist/winbox.bundle.js"></script>
+    <style>
+      .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      img {
+        width: 40%;
+        border: 1px solid red;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body class="vis">
+    <h1>Портфолио</h1>
+    <div class="wrap">
+      <img src="abn.png" alt="" data-href="http://abninter.com.pt" />
+      <img src="kamenev.png" alt="" data-href="https://kamenev.tv" />
+      <img src="darsan.png" alt="" data-href="https://darsanclinic.ru" />
+    </div>
+
+    <script>
+      var imgs = document.querySelectorAll("img");
+      for (let i = 0; i < imgs.length; i++) {
+        imgs[i].addEventListener("click", function () {
+          new WinBox({
+            url: imgs[i].getAttribute("data-href"),
+            modal: true,
+            width: 100 + "%",
+            height: 100 + "%",
+            title: imgs[i].getAttribute("data-href"),
+            onfocus: function () {
+              document.body.style.overflow = "hidden";
+            },
+            onclose: function (force) {
+              document.body.style.overflow = "visible";
+            },
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        cursor: pointer;
+        transition: 0.3s;
+        width: 20%;
+        height: auto;
+      }
+      .wrap {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <img src="w.jpg" alt="" />
+      <img src="w.jpg" alt="" />
+      <img src="w.jpg" alt="" />
+      <img src="w.jpg" alt="" />
+      <img src="w.jpg" alt="" />
+      <img src="w.jpg" alt="" />
+    </div>
+    <script>
+      let imgs = document.querySelectorAll(".wrap > img");
+      let trigger = true;
+      function all(current) {
+        imgs[current].setAttribute(
+          "style",
+          "position: fixed; top: 0; left: 0; width: 100vw; height: 100vh"
+        );
+      }
+      function small(current) {
+        imgs[current].setAttribute(
+          "style",
+          "position: block; top: unset; left: unset; width: 20%; height: unset"
+        );
+      }
+      for (let i = 0; i < imgs.length; i++) {
+        imgs[i].addEventListener("click", function () {
+          if (trigger) {
+            all(i);
+            trigger = !trigger;
+          } else {
+            small(i);
+            trigger = !trigger;
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
